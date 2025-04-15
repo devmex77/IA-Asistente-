@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ChatBot</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="static/styles.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+<div class="container chat-container">
+    <h3 class="text-center text-primary fw-bold">CHATBOT</h3>
+    
+    <div class="chat-box d-flex flex-column" id="chat-box">
+        <!-- Mensajes aparecerán aquí -->
+    </div>
+
+    <div class="input-group mt-3">
+        <input type="text" id="user-input" class="form-control" placeholder="Escribe un mensaje..." onkeypress="handleKeyPress(event)">
+        <button class="btn btn-primary" onclick="sendMessage()">Enviar</button>
+    </div>
+</div>
+
+<script>
+    /*funcion que usa enter para enviar msj
+    llamar desde html en este caso en el input -> onkeypress="handleKeyPress(event)"
+    */
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {  
+            //llamando a funcion sendMessage
+            sendMessage();  
+        }
+    }
+    /*funcion enviar mensaje
+    en este caso la llamamos desde la funcion handleKeyPress
+    */
+    function sendMessage() {
+        let input = document.getElementById("user-input");
+        let message = input.value.trim();
+        if (message === "") return;
+
+        // Agregar mensaje del usuario
+        addMessage(message, "user-message");
+
+        // Enviar mensaje al backend
+        fetch("/chat", {
+            method: "POST",
+            body: JSON.stringify({ message: message }),
+            headers: { "Content-Type": "application/json" }
+        })
+        .then(response => response.json())
+        .then(data => {
+            addMessage(data.response, "bot-message");
+        });
+
+        input.value = "";
+    }
+
+    function addMessage(text, className) {
+        let chatBox = document.getElementById("chat-box");
+        let msgDiv = document.createElement("div");
+        msgDiv.className = `message ${className}`;
+        msgDiv.textContent = text;
+        chatBox.appendChild(msgDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+</script>
+</body>
+</html>
