@@ -2,7 +2,7 @@
 
 # Descripcion del proyecto
 
-Desarrollo de chatbot de atencion al publico
+Desarrollo de chatbot de atencion al publico el cual consta de las siguientes funciones/caracteristicas:
 
 Plantilla de interfaz del chat
 
