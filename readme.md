@@ -1,6 +1,6 @@
 # 🤖 CHATBOT ASISTENTE VIRTUAL FLASK PYTHON 💬
 
-# Descripcion del proyecto
+# 🚀 Descripcion del proyecto
 
 Desarrollo de chatbot de atencion al publico el cual consta de las siguientes funciones/caracteristicas:
 
