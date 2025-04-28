@@ -1,4 +1,6 @@
 # 🤖 CHATBOT ASISTENTE VIRTUAL FLASK PYTHON 💬
+<img width="369" alt="image" src="https://github.com/user-attachments/assets/5c24934b-69d1-4ca4-b062-d2ef9f390d53" />
+
 
 # 🚀 Descripcion del proyecto
 
