@@ -4,14 +4,13 @@
 
 Desarrollo de chatbot de atencion al publico el cual consta de las siguientes funciones/caracteristicas:
 
+con Ollama instalada en local
+
 Plantilla de interfaz del chat
 
 Base de datos de preguntas y respuestas (SQLALCHEMY)
 
 Peticiones GET y POST con CORS que permite hacer peticiones desde el navegador
-
-
-
 
 
 
